@@ -7,7 +7,7 @@ import InformProblemBox from "../components/InformProblemBox"
 import AddressBox from "../components/AddressBox"
 const TrackingPage = () => {
     const [data, setData] = useState(null);
-    const [trackingId, setTrackingId] = useState()
+    const [trackingId, setTrackingId] = useState("1234156777")
     const getData = async (id) => {
         try {
             const receivedData = await trackServiceWithId(id);
@@ -42,7 +42,7 @@ const TrackingPage = () => {
             </>
         }
 
-        {data.error && <p className="text-red-500 ">{data.error}</p>}
+        {data && data.error && <p className="text-red-500 ">{data.error}</p>}
 
     </section >
 }
