@@ -1,0 +1,42 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+#root {
+    max-width: 1280px;
+    margin: 15px auto;
+    text-align: center;
+    font-family: 'Cairo', Courier;
+}
+
+.primary-color {
+    color: #e30613;
+}
+
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal-line {
+    flex-grow: 1;
+    height: 4px;
+}
+
+.step-label {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+}
