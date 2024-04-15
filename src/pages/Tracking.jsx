@@ -56,7 +56,7 @@ const TrackingPage = () => {
             transitEvents={data.TransitEvents}
           />
 
-          <section className="mt-10 flex  just justify-evenly w-full">
+          <section className="mt-10 flex flex-col items-center md:items-start gap-5 md:flex-row justify-evenly md:w-full">
             <ShippmentDetailsTable transitEvents={data.TransitEvents} />
             <section className="flex flex-col gap-4">
               <AddressBox />
