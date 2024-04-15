@@ -2,16 +2,16 @@ import PropTypes from "prop-types";
 
 const ShippmentDetailsTable = ({ transitEvents }) => {
   return (
-    <section className="overflow-x-scroll  w-11/12">
+    <section className="sm:overflow-hidden overflow-auto w-11/12 sm:w-fit">
       <h3 className="text-start">Shippment Details</h3>
 
       <table className="border-collapse">
         <thead>
           <tr className="bg-gray-100">
-            <th className="px-2 py-1">Branch</th>
-            <th className="px-2 py-1">Date</th>
-            <th className="px-2 py-1">Time</th>
-            <th className="px-2 py-1">Details</th>
+            <th className="px-4 py-2">Branch</th>
+            <th className="px-4 py-2">Date</th>
+            <th className="px-4 py-2">Time</th>
+            <th className="px-4 py-2">Details</th>
           </tr>
         </thead>
         <tbody>
@@ -22,10 +22,10 @@ const ShippmentDetailsTable = ({ transitEvents }) => {
             const time = dateAndTime[0];
             return (
               <tr key={index}>
-                <td className="border px-2 py-1">{event.hub ?? "Nasr City"}</td>
-                <td className="border px-2 py-1">{date}</td>
-                <td className="border px-2 py-1">{time}</td>
-                <td className="border px-2 py-1">{event.state}</td>
+                <td className="border px-4 py-2">{event.hub ?? "Nasr City"}</td>
+                <td className="border px-4 py-2">{date}</td>
+                <td className="border px-4 py-2">{time}</td>
+                <td className="border px-4 py-2">{event.state}</td>
               </tr>
             );
           })}
