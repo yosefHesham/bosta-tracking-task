@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
+import { useLocalization } from "../contexts/LocalizationContext";
 
 const SearchBox = ({ handleSubmit }) => {
+  const { t } = useLocalization();
   return (
     <div className="flex border rounded-xl md:w-80">
       <input
         type="text"
-        placeholder="Shippment No"
+        placeholder={t("shipmentNo")}
         className="rounded-m px-5 w-full"
         onKeyDown={(event) => {
           if (event.key == "Enter") {

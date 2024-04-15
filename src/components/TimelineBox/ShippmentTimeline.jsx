@@ -2,27 +2,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PropTypes from "prop-types";
+import { useLocalization } from "../../contexts/LocalizationContext";
 
 const steps = [
   {
-    label: "Ticket Created",
+    label: "TICKET_CREATED",
     icon: <FontAwesomeIcon icon="fa-solid fa-square-plus" />,
   },
   {
-    label: "Package Recieved",
+    label: "PACKAGE_RECEIVED",
     icon: <FontAwesomeIcon icon="fa-solid fa-box" />,
   },
   {
-    label: "Package Out For Delivery",
+    label: "PACKAGE_OUT_FOR_DELIVERY",
     icon: <FontAwesomeIcon icon="fa-solid fa-truck-fast" />,
   },
   {
-    label: "Delivered",
+    label: "DELIVERED",
     icon: <FontAwesomeIcon icon="fa-solid fa-file" />,
   },
 ];
 
 const ShippmentTimeLine = ({ currentStage }) => {
+  const { t } = useLocalization();
   return (
     <div>
       <div className="flex justify-between items-center px-5">
@@ -33,7 +35,7 @@ const ShippmentTimeLine = ({ currentStage }) => {
                 className={`step-circle ${index <= currentStage.position ? currentStage.stepperBgColor : " bg-gray-400"}`}
               >
                 {currentStage.position > index ||
-                currentStage.stage === "Delivered" ? (
+                currentStage.stage.toLowerCase() === "delivered" ? (
                   <FontAwesomeIcon icon="fa-solid fa-check" />
                 ) : (
                   step.icon
@@ -52,7 +54,7 @@ const ShippmentTimeLine = ({ currentStage }) => {
         {steps.map((step, index) => (
           <>
             <div key={index} className="step">
-              <div>{step.label}</div>
+              <div>{t(step.label)}</div>
               {currentStage.message && currentStage.position == index && (
                 <div className="text-sm text-wrap text-red-600">
                   {currentStage.message}{" "}

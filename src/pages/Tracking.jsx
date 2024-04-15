@@ -7,11 +7,14 @@ import InformProblemBox from "../components/InformProblemBox";
 import AddressBox from "../components/AddressBox";
 import SearchBox from "../components/SearchBox";
 import Sidebar from "../components/SideBar";
+import { useLocalization } from "../contexts/LocalizationContext";
 const TrackingPage = () => {
   const [data, setData] = useState(null);
   const [trackingId, setTrackingId] = useState("7234258");
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+  const { i18n } = useLocalization();
 
+  document.dir = i18n.dir();
   const toggleSideBar = () => {
     setIsOpenSideBar(!isOpenSideBar);
   };
@@ -32,6 +35,7 @@ const TrackingPage = () => {
   useEffect(() => {
     getData(trackingId);
   }, [trackingId]);
+
   return (
     <section>
       <Navbar

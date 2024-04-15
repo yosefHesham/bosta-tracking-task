@@ -3,13 +3,17 @@ import PropTypes from "prop-types";
 import SearchModal from "./SearchModal";
 import BostaLogo from "./BostaLogo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocalization } from "../contexts/LocalizationContext";
 
-const navItems = ["Main", "Prices", "Talk To Sales"];
+const navItems = ["main", "prices", "talk_to_sales"];
 const Navbar = ({ handleTrackingId, handleSideBar }) => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
+
+  const { t, i18n } = useLocalization();
+  console.log(useLocalization());
 
   const trackShippmentColor = showModal
     ? "text-red-500 border rounded p-5"
@@ -23,7 +27,7 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
             key={item}
             className="cursor-pointer  font-bold  text-l text-gray-900"
           >
-            {item}
+            {t(item)}
           </li>
         ))}
       </ul>
@@ -32,12 +36,21 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
           className={`cursor-pointer font-bold hidden md:block  text-l ${trackShippmentColor} open-modal`}
           onClick={handleShowModal}
         >
-          Track Your Shipment {">"}
+          {t("track_your_shipment")}
         </li>
         <li className="cursor-pointer font-bold  text-l text-gray-900 ">
-          Sign In{" "}
+          {t("sign_in")}
         </li>
-        <li className="cursor-pointer primary-color font-bold">AR</li>
+        <li
+          className="cursor-pointer primary-color font-bold"
+          onClick={() => {
+            i18n.language === "ar"
+              ? i18n.changeLanguage("en")
+              : i18n.changeLanguage("ar");
+          }}
+        >
+          {t("lang")}
+        </li>
         {showModal && <SearchModal handleSubmit={handleTrackingId} />}
       </ul>
 

@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
+import { useLocalization } from "../contexts/LocalizationContext";
 
-const barItems = ["Main", "Prices", "Talk To Sales", "Sign In"];
+const barItems = ["main", "prices", "talk_to_sales", "sign_in"];
 
 const Sidebar = ({ isOpen, onClose }) => {
+  const { t } = useLocalization();
   return (
     <div
       className={`fixed inset-0 sm:hidden z-50 bg-gray-800 bg-opacity-75 transition-opacity ${isOpen ? "opacity-100" : "opacity-0"}`}
@@ -25,7 +27,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                   key={item}
                   className="cursor-pointer  font-bold  text-l text-gray-900"
                 >
-                  {item}
+                  {t(item)}
                 </li>
               ))}
             </ul>
