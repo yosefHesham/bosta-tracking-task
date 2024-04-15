@@ -1,0 +1,44 @@
+import PropTypes from "prop-types";
+
+const barItems = ["Main", "Prices", "Talk To Sales", "Sign In"];
+
+const Sidebar = ({ isOpen, onClose }) => {
+  return (
+    <div
+      className={`fixed inset-0 sm:hidden z-50 bg-gray-800 bg-opacity-75 transition-opacity ${isOpen ? "opacity-100" : "opacity-0"}`}
+    >
+      <div className="flex justify-end h-screen">
+        <div className="w-64 bg-white shadow-md">
+          <div className="p-4">
+            <button
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
+          <div className="px-4 py-2">
+            <ul className="flex flex-col gap-2">
+              {barItems.map((item) => (
+                <li
+                  onClick={onClose}
+                  key={item}
+                  className="cursor-pointer  font-bold  text-l text-gray-900"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func,
+};
+
+export default Sidebar;

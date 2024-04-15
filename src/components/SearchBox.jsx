@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const SearchBox = ({ handleSubmit }) => {
   return (
-    <div className="flex border rounded-xl">
+    <div className="flex border rounded-xl md:w-80">
       <input
         type="text"
         placeholder="Shippment No"

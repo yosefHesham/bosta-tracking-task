@@ -6,9 +6,15 @@ import ShippmentDetailsTable from "../components/ShippmentDetailsTable";
 import InformProblemBox from "../components/InformProblemBox";
 import AddressBox from "../components/AddressBox";
 import SearchBox from "../components/SearchBox";
+import Sidebar from "../components/SideBar";
 const TrackingPage = () => {
   const [data, setData] = useState(null);
   const [trackingId, setTrackingId] = useState("7234258");
+  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+
+  const toggleSideBar = () => {
+    setIsOpenSideBar(!isOpenSideBar);
+  };
   const getData = async (id) => {
     try {
       const receivedData = await trackServiceWithId(id);
@@ -28,11 +34,18 @@ const TrackingPage = () => {
   }, [trackingId]);
   return (
     <section>
-      <Navbar handleTrackingId={handleTrackingId} />
+      <Navbar
+        handleTrackingId={handleTrackingId}
+        handleSideBar={toggleSideBar}
+      />
 
-      <div className=" w-4/5 mx-auto mt-5 md:hidden">
+      <div className="w-4/5 mx-auto mt-5 md:hidden">
         <SearchBox handleSubmit={handleTrackingId} />
       </div>
+
+      {isOpenSideBar && (
+        <Sidebar isOpen={isOpenSideBar} onClose={toggleSideBar} />
+      )}
       {data && !data.error && (
         <>
           <TimelineBox

@@ -5,7 +5,7 @@ import BostaLogo from "./BostaLogo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const navItems = ["Main", "Prices", "Talk To Sales"];
-const Navbar = ({ handleTrackingId }) => {
+const Navbar = ({ handleTrackingId, handleSideBar }) => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -27,24 +27,25 @@ const Navbar = ({ handleTrackingId }) => {
           </li>
         ))}
       </ul>
-      <section className="gap-5 items-center relative hidden sm:flex">
-        <p
+      <ul className="gap-5 items-center relative hidden sm:flex">
+        <li
           className={`cursor-pointer font-bold hidden md:block  text-l ${trackShippmentColor} open-modal`}
           onClick={handleShowModal}
         >
           Track Your Shipment {">"}
-        </p>
-        <p className="cursor-pointer font-bold  text-l text-gray-900 ">
+        </li>
+        <li className="cursor-pointer font-bold  text-l text-gray-900 ">
           Sign In{" "}
-        </p>
-        <p className="cursor-pointer primary-color font-bold">AR</p>
+        </li>
+        <li className="cursor-pointer primary-color font-bold">AR</li>
         {showModal && <SearchModal handleSubmit={handleTrackingId} />}
-      </section>
+      </ul>
 
       <FontAwesomeIcon
         size="xl"
         icon="fa-solid fa-bars"
-        className="cursor-pointer sm:hidden mr-5 sm:mr-0  "
+        className="cursor-pointer sm:hidden mr-5 sm:mr-0"
+        onClick={handleSideBar}
       />
     </nav>
   );
@@ -52,5 +53,6 @@ const Navbar = ({ handleTrackingId }) => {
 
 Navbar.propTypes = {
   handleTrackingId: PropTypes.func.isRequired,
+  handleSideBar: PropTypes.func.isRequired,
 };
 export default Navbar;
