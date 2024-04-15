@@ -7,7 +7,7 @@ import InformProblemBox from "../components/InformProblemBox"
 import AddressBox from "../components/AddressBox"
 const TrackingPage = () => {
     const [data, setData] = useState(null);
-    const [trackingId, setTrackingId] = useState("1234156777")
+    const [trackingId, setTrackingId] = useState("7234258")
     const getData = async (id) => {
         try {
             const receivedData = await trackServiceWithId(id);

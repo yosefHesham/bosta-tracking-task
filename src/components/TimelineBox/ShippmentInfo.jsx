@@ -1,31 +1,54 @@
-const ShippmentInfo = ({ currentStatus, shippmentNo, providerName, promisedDate }) => {
-    const formattedlastUpdate = new Date(currentStatus.timestamp).toLocaleString()
+import PropTypes from "prop-types";
 
-    const formattedPromisedDate = new Date(promisedDate).toLocaleString()
+const ShippmentInfo = ({
+  currentStatus,
+  shippmentNo,
+  statusColor,
+  providerName,
+  promisedDate,
+}) => {
+  const formattedlastUpdate = new Date(
+    currentStatus.timestamp
+  ).toLocaleString();
 
-    return <section className='flex justify-evenly'>
-        <article >
-            <p className='text-gray-500'> ShippmentNo {shippmentNo}</p>
-            <p className='primary-color font-bold'> {currentStatus.state}</p>
-        </article>
+  const formattedPromisedDate = new Date(promisedDate).toLocaleString();
 
-        <article >
-            <p className='text-gray-500'> Last Updated </p>
-            <p > {formattedlastUpdate}</p>
-        </article>
+  return (
+    <section className="flex justify-evenly">
+      <article>
+        <p className="text-gray-500"> ShippmentNo {shippmentNo}</p>
+        <p className={`${statusColor} font-bold`}> {currentStatus}</p>
+      </article>
 
-        <article >
-            <p className='text-gray-500' > Provider Name</p>
-            <p > {providerName}</p>
-        </article>
+      <article>
+        <p className="text-gray-500"> Last Updated </p>
+        <p className="font-bold  text-l text-gray-900">
+          {" "}
+          {formattedlastUpdate}
+        </p>
+      </article>
 
-        <article >
-            <p className='text-gray-500'> Delivery Date</p>
-            <p > {formattedPromisedDate}</p>
-        </article>
+      <article>
+        <p className="text-gray-500"> Provider Name</p>
+        <p className="font-bold  text-l text-gray-900"> {providerName}</p>
+      </article>
 
+      <article>
+        <p className="text-gray-500"> Delivery Date</p>
+        <p className="font-bold  text-l text-gray-900">
+          {formattedPromisedDate}
+        </p>
+      </article>
     </section>
+  );
+};
 
-}
+ShippmentInfo.propTypes = {
+  currentStatus: PropTypes.object.isRequired,
+  shippmentNo: PropTypes.string.isRequired,
+  providerName: PropTypes.string.isRequired,
+  promisedDate: PropTypes.string.isRequired,
+  statusColor: PropTypes.string.isRequired,
+};
 
-export default ShippmentInfo
+export default ShippmentInfo;
