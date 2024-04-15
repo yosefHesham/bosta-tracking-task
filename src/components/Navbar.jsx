@@ -57,7 +57,7 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
       <FontAwesomeIcon
         size="xl"
         icon="fa-solid fa-bars"
-        className="cursor-pointer sm:hidden mr-5 sm:mr-0"
+        className="cursor-pointer sm:hidden rtl:ml-5 ltr:mr-5 sm:mr-0"
         onClick={handleSideBar}
       />
     </nav>
