@@ -27,5 +27,6 @@
   "CANCELLED": "Cancelled",
   "DELIVERED": "Delivered",
   "DELIVERED_TO_SENDER": "Is Not Delivered",
-  "dateFormatShort": "{{day}}  {{month}} {{year}}"
+  "Cancelled_Message": "Shipment Has Been Cancelled",
+  "DNR_Message": "Custmoer Did Not Receive"
 }

@@ -54,10 +54,10 @@ const ShippmentTimeLine = ({ currentStage }) => {
         {steps.map((step, index) => (
           <>
             <div key={index} className="step">
-              <div>{t(step.label)}</div>
+              <p className=" text-gray-800 font-semibold">{t(step.label)}</p>
               {currentStage.message && currentStage.position == index && (
                 <div className="text-sm text-wrap text-red-600">
-                  {currentStage.message}{" "}
+                  {t(currentStage.message)}{" "}
                 </div>
               )}
             </div>

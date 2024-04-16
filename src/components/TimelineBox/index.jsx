@@ -37,7 +37,7 @@ const mapCurrentStateToStage = (currentState, lastEvent) => {
             stepperBgColor: "bg-red-500",
             statusTextColor: "text-red-500",
             stage: "Ticket Created",
-            message: "Shippment has been cancelled",
+            message: "Cancelled_Message",
             position: 1,
           };
         case "PACKAGE_RECEIVED":
@@ -45,7 +45,7 @@ const mapCurrentStateToStage = (currentState, lastEvent) => {
             stepperBgColor: "bg-red-500",
             statusTextColor: "text-red-500",
             stage: "Package Received",
-            message: "Shippment has been cancelled",
+            message: "Cancelled_Message",
             position: 1,
           };
         case "OUT_FOR_DELIVERY":
@@ -53,7 +53,7 @@ const mapCurrentStateToStage = (currentState, lastEvent) => {
             stepperBgColor: "bg-red-500",
             statusTextColor: "text-red-500",
             stage: "Out For Delivery",
-            message: "Shippment has been cancelled",
+            message: "Cancelled_Message",
             position: 2,
           };
       }
@@ -63,7 +63,7 @@ const mapCurrentStateToStage = (currentState, lastEvent) => {
         stepperBgColor: "bg-yellow-500",
         statusTextColor: "text-yellow-500",
         stage: "Out For Delivery",
-        message: "Customer did not receive",
+        message: "DNR_Message",
         position: 2,
       };
     case "DELIVERED":

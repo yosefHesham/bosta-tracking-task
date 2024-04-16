@@ -1,19 +1,26 @@
 import PropTypes from "prop-types";
 import { useLocalization } from "../contexts/LocalizationContext";
 
+const tableColumns = ["branch", "date", "time", "details"];
+
 const ShippmentDetailsTable = ({ transitEvents }) => {
   const { t } = useLocalization();
   return (
-    <section className="sm:overflow-hidden overflow-auto w-11/12 sm:w-fit">
-      <h3 className="text-start">{t("details")} </h3>
+    <section className="sm:overflow-hidden overflow-auto sm:w-fit  flex-grow">
+      <h3 className="text-start text-gray-600 font-semibold text-lg">
+        {t("details")}{" "}
+      </h3>
 
-      <table className="border-collapse">
+      <table className="border border-gray-200 rounded-lg w-full overflow-hidden">
         <thead>
-          <tr className="bg-gray-100">
-            <th className="px-4 py-2">{t("branch")}</th>
-            <th className="px-4 py-2">{t("date")}</th>
-            <th className="px-4 py-2">{t("time")}</th>
-            <th className="px-4 py-2">{t("details")}</th>
+          <tr className="bg-gray-50">
+            {tableColumns.map((column) => {
+              return (
+                <th key={column} className="px-4 py-4">
+                  {t(column)}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
@@ -24,10 +31,18 @@ const ShippmentDetailsTable = ({ transitEvents }) => {
             const time = dateAndTime[0];
             return (
               <tr key={index}>
-                <td className="border px-4 py-2">{event.hub ?? "Nasr City"}</td>
-                <td className="border px-4 py-2">{time}</td>
-                <td className="border px-4 py-2">{date}</td>
-                <td className="border px-4 py-2">{t(event.state)}</td>
+                <td className=" text-gray-600 font-semibold px-4 py-2">
+                  {event.hub ?? "Nasr City"}
+                </td>
+                <td className="text-gray-600 font-semibold px-4 py-2">
+                  {time}
+                </td>
+                <td className=" text-gray-600 font-semiboldpx-4 py-2">
+                  {date}
+                </td>
+                <td className=" text-gray-600 font-semiboldpx-4 py-2">
+                  {t(event.state)}
+                </td>
               </tr>
             );
           })}
