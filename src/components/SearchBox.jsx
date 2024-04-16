@@ -5,7 +5,7 @@ import { useLocalization } from "../contexts/LocalizationContext";
 const SearchBox = ({ handleSubmit }) => {
   const { t } = useLocalization();
   return (
-    <div className="flex border rounded-xl md:w-80">
+    <div className="flex border rounded-xl md:w-80 overflow-hidden">
       <input
         type="text"
         placeholder={t("shipmentNo")}

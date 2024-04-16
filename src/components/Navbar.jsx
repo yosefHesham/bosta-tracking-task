@@ -14,17 +14,17 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
 
   const { t, i18n } = useLocalization();
 
-  const trackShippmentColor = showModal
-    ? "text-red-500 border rounded p-5"
+  const trackShipmentColor = showModal
+    ? "text-red-500 ring-[.1px] rounded-lg shadow-xl"
     : "text-gray-900";
   return (
-    <nav className="flex justify-between sm:justify-evenly items-center border-b pb-5 w-full ">
+    <nav className="flex justify-between sm:justify-evenly items-center border-b   p-1 w-full ">
       <BostaLogo />
       <ul className="gap-5 hidden sm:flex items-center">
         {navItems.map((item) => (
           <li
             key={item}
-            className="cursor-pointer  font-bold  text-l text-gray-900"
+            className="cursor-pointer py-5 font-bold  text-l text-gray-900"
           >
             {t(item)}
           </li>
@@ -32,7 +32,7 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
       </ul>
       <ul className="gap-5 items-center relative hidden sm:flex">
         <li
-          className={`cursor-pointer font-bold hidden md:block  text-l ${trackShippmentColor} open-modal`}
+          className={`cursor-pointer font-bold hidden md:block  py-8  text-l ${trackShipmentColor}`}
           onClick={handleShowModal}
         >
           {t("track_your_shipment")}
@@ -41,7 +41,7 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
           {t("sign_in")}
         </li>
         <li
-          className="cursor-pointer primary-color font-bold"
+          className="cursor-pointer primary-color  py-5 font-bold"
           onClick={() => {
             i18n.language === "ar"
               ? i18n.changeLanguage("en")

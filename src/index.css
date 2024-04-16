@@ -2,12 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-#root {
-  max-width: 1280px;
-  margin: 15px auto;
-  text-align: center;
-  font-family: "Cairo", Courier;
-}
 
 .primary-color {
   color: #e30613;
