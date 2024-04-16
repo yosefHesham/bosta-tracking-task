@@ -4,7 +4,7 @@ import { useLocalization } from "../contexts/LocalizationContext";
 const barItems = ["main", "prices", "talk_to_sales", "sign_in"];
 
 const Sidebar = ({ isOpen, onClose }) => {
-  const { t } = useLocalization();
+  const { t, i18n } = useLocalization();
   return (
     <div
       className={`fixed inset-0 sm:hidden z-50 bg-gray-800 bg-opacity-75 transition-opacity ${isOpen ? "opacity-100" : "opacity-0"}`}
@@ -21,15 +21,27 @@ const Sidebar = ({ isOpen, onClose }) => {
           </div>
           <div className="px-4 py-2">
             <ul className="flex flex-col gap-2">
-              {barItems.map((item) => (
+              <>
+                {barItems.map((item) => (
+                  <li
+                    onClick={onClose}
+                    key={item}
+                    className="cursor-pointer  font-bold  text-l text-gray-900"
+                  >
+                    {t(item)}
+                  </li>
+                ))}
                 <li
-                  onClick={onClose}
-                  key={item}
-                  className="cursor-pointer  font-bold  text-l text-gray-900"
+                  className="cursor-pointer  font-bold  text-l text-red-500"
+                  onClick={() => {
+                    i18n.language === "ar"
+                      ? i18n.changeLanguage("en")
+                      : i18n.changeLanguage("ar");
+                  }}
                 >
-                  {t(item)}
+                  {t("lang")}
                 </li>
-              ))}
+              </>
             </ul>
           </div>
         </div>
