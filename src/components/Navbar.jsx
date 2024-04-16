@@ -13,7 +13,6 @@ const Navbar = ({ handleTrackingId, handleSideBar }) => {
   };
 
   const { t, i18n } = useLocalization();
-  console.log(useLocalization());
 
   const trackShippmentColor = showModal
     ? "text-red-500 border rounded p-5"

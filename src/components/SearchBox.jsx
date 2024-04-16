@@ -17,7 +17,7 @@ const SearchBox = ({ handleSubmit }) => {
         }}
       ></input>
 
-      <div className="bg-red-500 p-5  h-full rounded-tr-md flex items-center justify-center rounded-br-md">
+      <div className="bg-red-500 p-5  h-full ltr:rounded-tr-md ltr:rounded-br-md rtl:rounded-tl-md  rtl:rounded-bl-md flex items-center justify-center ">
         <FontAwesomeIcon icon="fa-solid fa-search" color="white" />{" "}
       </div>
     </div>
