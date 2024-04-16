@@ -1,4 +1,6 @@
+import "moment/dist/locale/ar";
 import { useEffect, useState } from "react";
+
 import Navbar from "../components/Navbar";
 import trackServiceWithId from "../services/tracking_service";
 import TimelineBox from "../components/TimelineBox";
@@ -8,6 +10,7 @@ import AddressBox from "../components/AddressBox";
 import SearchBox from "../components/SearchBox";
 import Sidebar from "../components/SideBar";
 import { useLocalization } from "../contexts/LocalizationContext";
+import moment from "moment";
 const TrackingPage = () => {
   const [data, setData] = useState(null);
   const [trackingId, setTrackingId] = useState("7234258");
@@ -35,6 +38,8 @@ const TrackingPage = () => {
   useEffect(() => {
     getData(trackingId);
   }, [trackingId]);
+
+  moment.locale(i18n.language);
 
   return (
     <section>

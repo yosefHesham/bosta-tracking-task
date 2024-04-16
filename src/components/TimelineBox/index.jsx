@@ -91,7 +91,7 @@ const TimelineBox = ({
   return (
     <section className="flex rounded-md shadow-md flex-col mt-16 mx-auto border p-2">
       <ShippmentInfo
-        currentStatus={currentStatus.state}
+        currentStatus={currentStatus}
         shippmentNo={shippmentNo}
         statusColor={currentStage.statusTextColor}
         lastUpdated={lastUpdated}

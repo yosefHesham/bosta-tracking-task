@@ -1,3 +1,4 @@
+import moment from "moment";
 import PropTypes from "prop-types";
 import { useLocalization } from "../../contexts/LocalizationContext";
 
@@ -8,12 +9,9 @@ const ShippmentInfo = ({
   providerName,
   promisedDate,
 }) => {
-  const formattedlastUpdate = new Date(
-    currentStatus.timestamp
-  ).toLocaleString();
-
-  const formattedPromisedDate = new Date(promisedDate).toLocaleString();
+  const formattedPromisedDate = moment(promisedDate);
   const { t } = useLocalization();
+  const formattedlastUpdate = moment(currentStatus.timestamp);
 
   return (
     <section className="flex justify-evenly">
@@ -21,14 +19,15 @@ const ShippmentInfo = ({
         <p className="text-gray-500">
           {t("shipmentNo")} {shippmentNo}
         </p>
-        <p className={`${statusColor} font-bold`}> {t(currentStatus)}</p>
+        <p className={`${statusColor} font-bold`}> {t(currentStatus.state)}</p>
       </article>
 
       <article>
         <p className="text-gray-500"> {t("last_update")} </p>
         <p className="font-bold  text-l text-gray-900">
-          {" "}
-          {formattedlastUpdate}
+          {formattedlastUpdate.format("dddd ")}
+          {formattedlastUpdate.format("YYYY/MM/DD ")}
+          at {formattedlastUpdate.format("HH:mm A")}
         </p>
       </article>
 
@@ -40,7 +39,7 @@ const ShippmentInfo = ({
       <article>
         <p className="text-gray-500"> {t("delivery_date")}</p>
         <p className="font-bold  text-l text-gray-900">
-          {formattedPromisedDate}
+          {formattedPromisedDate.format("D MMMM YYYY")}
         </p>
       </article>
     </section>

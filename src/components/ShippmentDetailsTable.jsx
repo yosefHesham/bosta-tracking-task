@@ -5,7 +5,7 @@ const ShippmentDetailsTable = ({ transitEvents }) => {
   const { t } = useLocalization();
   return (
     <section className="sm:overflow-hidden overflow-auto w-11/12 sm:w-fit">
-      <h3 className="text-start"></h3>
+      <h3 className="text-start">{t("details")} </h3>
 
       <table className="border-collapse">
         <thead>
@@ -25,8 +25,8 @@ const ShippmentDetailsTable = ({ transitEvents }) => {
             return (
               <tr key={index}>
                 <td className="border px-4 py-2">{event.hub ?? "Nasr City"}</td>
-                <td className="border px-4 py-2">{date}</td>
                 <td className="border px-4 py-2">{time}</td>
+                <td className="border px-4 py-2">{date}</td>
                 <td className="border px-4 py-2">{t(event.state)}</td>
               </tr>
             );

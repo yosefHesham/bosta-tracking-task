@@ -26,5 +26,6 @@
   "NOT_YET_SHIPPED": "Not Shipped Yet",
   "CANCELLED": "Cancelled",
   "DELIVERED": "Delivered",
-  "DELIVERED_TO_SENDER": "Is Not Delivered"
+  "DELIVERED_TO_SENDER": "Is Not Delivered",
+  "dateFormatShort": "{{day}}  {{month}} {{year}}"
 }
