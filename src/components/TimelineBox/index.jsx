@@ -89,7 +89,7 @@ const TimelineBox = ({
   const currentStage = mapCurrentStateToStage(currentStatus.state, lastEvent);
 
   return (
-    <section className="flex rounded-md shadow-md flex-col mt-16 mx-auto border p-2">
+    <section className="flex rounded-md shadow-md w-11/12 flex-col mt-16 mx-auto border p-2">
       <ShippmentInfo
         currentStatus={currentStatus}
         shippmentNo={shippmentNo}

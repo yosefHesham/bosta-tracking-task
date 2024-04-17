@@ -6,7 +6,7 @@ const tableColumns = ["branch", "date", "time", "details"];
 const ShippmentDetailsTable = ({ transitEvents }) => {
   const { t } = useLocalization();
   return (
-    <section className="sm:overflow-hidden overflow-auto sm:w-fit  flex-grow">
+    <section className="sm:overflow-hidden overflow-auto sm:w-fit w-11/12 flex-grow">
       <h3 className="text-start text-gray-600 font-semibold text-lg">
         {t("details")}{" "}
       </h3>

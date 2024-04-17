@@ -14,7 +14,7 @@ const ShippmentInfo = ({
   const formattedlastUpdate = moment(currentStatus.timestamp);
 
   return (
-    <section className="flex justify-evenly">
+    <section className="flex flex-col md:flex-row justify-evenly">
       <article>
         <p className="text-gray-500">
           {t("shipmentNo")} {shippmentNo}

@@ -4,7 +4,7 @@ const InformProblemBox = () => {
   const { t } = useLocalization();
 
   return (
-    <section className="flex border rounded-md items-center justify-evenly p-5 h-42 gap-5 flex-shrink">
+    <section className="flex border rounded-md items-center mx-auto w-11/12 justify-evenly p-5 h-42 gap-5 flex-shrink">
       <div>
         <p className="text-gray-800 font-semibold text-lg">
           {t("problem_question")}

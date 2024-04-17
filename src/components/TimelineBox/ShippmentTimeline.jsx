@@ -26,8 +26,8 @@ const steps = [
 const ShippmentTimeLine = ({ currentStage }) => {
   const { t } = useLocalization();
   return (
-    <div>
-      <div className="flex justify-between items-center px-5">
+    <div className="flex md:block">
+      <div className="flex flex-col md:flex-row justify-between items-center px-5">
         {steps.map((step, index) => (
           <>
             <div key={index} className="step">
@@ -44,13 +44,13 @@ const ShippmentTimeLine = ({ currentStage }) => {
             </div>
             {index !== steps.length - 1 && (
               <div
-                className={`horizontal-line ${index < currentStage.position && currentStage.position ? currentStage.stepperBgColor : "bg-gray-500"}`}
+                className={` border border-green-500 h-16 md:border-none  md:flex-grow md:h-1 ${index < currentStage.position && currentStage.position ? currentStage.stepperBgColor : "bg-gray-500"}`}
               ></div>
             )}
           </>
         ))}
       </div>
-      <div className="flex justify-between px-3">
+      <div className="flex flex-col md:flex-row justify-between px-3">
         {steps.map((step, index) => (
           <>
             <div key={index} className="step">

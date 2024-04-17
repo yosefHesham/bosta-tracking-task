@@ -4,7 +4,7 @@ const AddressBox = () => {
   const { t } = useLocalization();
 
   return (
-    <section>
+    <section className="w-11/12 mx-auto">
       <h3 className="text-start text-gray-600 font-semibold text-lg">
         {t("delivery_address")}
       </h3>
