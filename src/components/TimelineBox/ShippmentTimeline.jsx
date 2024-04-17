@@ -50,7 +50,7 @@ const ShippmentTimeLine = ({ currentStage }) => {
           </>
         ))}
       </div>
-      <div className="flex flex-col md:flex-row justify-between px-3">
+      <div className="flex flex-col-reverse md:flex-row justify-between px-3">
         {steps.map((step, index) => (
           <>
             <div key={index} className="step">
